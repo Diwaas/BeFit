@@ -1,0 +1,180 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 7, 2018, 1:13:34 PM
+    Author     : dsaminathan
+*/
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+.appContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.sectionPartUser {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.loginContainer {
+    width: 450px;
+    min-height: 350px;
+    margin: auto;
+    box-shadow: 0px 0px 6px 0px grey;
+    border-radius: 3px;
+}
+.logoConatinerUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userDetailsConatinerLogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.fieldConatiner {
+    width: 70%;
+    height: 40px;
+    margin-bottom: 25px;
+}
+.fieldConatiner > input {
+    width: 98%;
+    height: 85%;
+    border: 1px solid #80808059;
+    border-radius: 2px;
+    padding: 0px 5px;
+}
+.forgotPasswordHome {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+.homeActionForm {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0px;
+}
+.actionLeft {
+    width: 20%;
+}
+.actionCenter {
+    background: #03A9F4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.actionRight {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+    width: 20%;
+}
+
+
+
+.leftSideMenu {
+    width: 100px;
+    height: 100%;
+}
+.sectionPart {
+    width: 100%;
+    height: 100%;
+}
+.topMenu {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #8080803b;
+}
+.headerLeft {
+    width: 25%;
+}
+.headerLogo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headerRight {
+    width: 25%;
+    display: flex;
+}
+.loginReg {
+    cursor: pointer;
+    padding: 0px 5px;
+}
+.dataContainer {
+    width: 100%;
+    height: 90%;
+}
+.userMenuContainer {
+    width: 95%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: auto;
+}
+.userMenu {
+    margin: 0px 15px;
+    border-radius: 2px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+.siteContent {
+    width: 100%;
+    height: 75%;
+}
+.surveyConatiner {
+    width: 85%;
+    margin: auto;
+    height: 85%;
+    margin-top: 25px;
+}
+.surveyBlock {
+    margin-bottom: 30px;
+    width: 100%;
+    min-height: 50%;
+}
+.surveyQuestion {
+    padding: 20px 0px;
+}
+.survyOptionsConatiner {
+    width: 80%;
+    margin: auto;
+}
+.surveyOptions {
+    padding: 10px 0px;
+}
+.surveyActionContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 15%;
+}
+.surevyAction {
+    padding: 10px 20px;
+    background: #03A9F4;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+}
