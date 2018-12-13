@@ -6,12 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "diwauser")
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "user")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private String id;
 	private String name;
 	private String password;
 	private String question;
@@ -42,10 +42,10 @@ public class User {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getEmail() {
