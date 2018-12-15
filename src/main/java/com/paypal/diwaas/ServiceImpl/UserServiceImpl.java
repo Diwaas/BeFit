@@ -17,9 +17,9 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public JSONModel getLoginUser(User user) {
 		JSONModel jsonModel = null;
-		User loginUser = userDAO.findByEmailAndPassword(user.getEmail(), user.getPassword());
+		User loginUser = userDAO.findByNameAndPassword(user.getName(), user.getPassword());
 		if(loginUser == null){
-			loginUser = userDAO.findByEmail(user.getEmail());
+			loginUser = userDAO.findByName(user.getName());
 			if(loginUser == null){
 				jsonModel = JSONModelHelper.processJSONModelForObject("200", "Please register Now", null);
 			}else{
@@ -39,19 +39,19 @@ public class UserServiceImpl implements UserService{
 		return newUser;
 	}
 
-	@Override
-	public User getUserByQuestion(String question, String answer) {
-		// TODO Auto-generated method stub
-		User user = userDAO.findByQuestionAndAnswer(question, answer);
-		return user;
-	}
+//	@Override
+//	public User getUserByQuestion(String question, String answer) {
+//		// TODO Auto-generated method stub
+//		User user = userDAO.findByQuestionAndAnswer(question, answer);
+//		return user;
+//	}
 
-	@Override
-	public User forgetPassword(User user) {
-		User email = userDAO.findByEmail(user.getEmail());
-		email.setPassword(user.getPassword());
-		userDAO.save(email);
-		return email;
-	}
+//	@Override
+//	public User forgetPassword(User user) {
+//		User email = userDAO.findByEmail(user.getEmail());
+//		email.setPassword(user.getPassword());
+//		userDAO.save(email);
+//		return email;
+//	}
 
 }
