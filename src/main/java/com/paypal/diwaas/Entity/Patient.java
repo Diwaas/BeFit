@@ -1,7 +1,5 @@
 package com.paypal.diwaas.Entity;
 
-import java.util.Date;
-
 import javax.persistence.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Patient {
 	@Id
 	private String id;
-	private int seq;
 	private String name;
 	private String password;
 	private String email;
@@ -31,7 +28,7 @@ public class Patient {
 	private String address;
 	private String education;
 	private String natureofwork;
-	
+
 	public String getPassword() {
 		return password;
 	}

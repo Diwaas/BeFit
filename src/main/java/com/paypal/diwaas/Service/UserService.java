@@ -8,7 +8,7 @@ public interface UserService {
 	JSONModel getLoginUser(User user);
 
 	User createUser(User user);
-//
+
 //	User getUserByQuestion(String question, String answer);
 //
 //	User forgetPassword(User user);

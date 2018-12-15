@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class PatientHistory {
 	@Id
 	private String id;
-	private int patientid;
+	private String patientid;
 	private String cheifcomplaints;
 	private String presentillness;
 	private String reviewofsystems;
@@ -35,7 +35,7 @@ public class PatientHistory {
 	private String sibilingsdm;
 	private String fatherhtm;
 	private String motherhtm;
-	private String sibilingshtm;
+	private String sibilingshtm;	
 	private String fatherheartdisease;
 	private String motherheartdisease;
 	private String sibilingsheartdisease;
@@ -72,11 +72,11 @@ public class PatientHistory {
 		this.id = id;
 	}
 
-	public int getPatientid() {
+	public String getPatientid() {
 		return patientid;
 	}
 
-	public void setPatientid(int patientid) {
+	public void setPatientid(String patientid) {
 		this.patientid = patientid;
 	}
 

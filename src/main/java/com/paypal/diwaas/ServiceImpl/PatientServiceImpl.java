@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.paypal.diwaas.Entity.Patient;
+import com.paypal.diwaas.Entity.PatientHistory;
 import com.paypal.diwaas.Service.PatientService;
 import com.paypal.diwaas.dao.PatientDAO;
+import com.paypal.diwaas.dao.PatientHistoryDAO;
 import com.paypal.diwaas.util.sideloading.JSONModel;
 import com.paypal.diwaas.util.sideloading.JSONModelHelper;
 
@@ -18,6 +20,9 @@ public class PatientServiceImpl implements PatientService {
 
 	@Autowired
 	PatientDAO patientDAO;
+	
+	@Autowired
+	PatientHistoryDAO patientHistoryDAO;
 
 	@Override
 	public JSONModel getLogin(Patient patient) {
@@ -42,9 +47,16 @@ public class PatientServiceImpl implements PatientService {
 		DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
 	    Date dateobj = new Date();
 	    String d = df.format(dateobj);
-//	    System.out.println(d);
 	    patient.setDate(d);
 		Patient newPatient = patientDAO.save(patient);
 		return newPatient;
 	}
+	
+	@Override
+	public PatientHistory addPatientHistory(PatientHistory patientHistory, String patientId) {
+		patientHistory.setPatientid(patientId);
+		PatientHistory newPatient = patientHistoryDAO.save(patientHistory);
+		return newPatient;
+	}
+
 }
