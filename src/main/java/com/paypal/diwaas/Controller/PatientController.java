@@ -61,7 +61,6 @@ public class PatientController {
 	@RequestMapping(value = "/addPatientHistory/{patientId}", method = RequestMethod.POST)
 	public ResponseEntity<JSONModel> getPatientHistory(@PathVariable(value = "patientId") String patientId, @RequestBody PatientHistory patientHistory) {
 		// create User
-		System.out.println("fvdavadfva");
 		ResponseEntity<JSONModel> resp = null;
 		JSONModel jsonModel = null;
 		try {
