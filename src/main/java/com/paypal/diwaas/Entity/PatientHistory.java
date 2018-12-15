@@ -9,9 +9,8 @@ public class PatientHistory {
 	@Id
 	private String id;
 	private String patientid;
-	private String cheifcomplaints;
+	private String chiefcomplaints;
 	private String presentillness;
-	private String reviewofsystems;
 	private String headache;
 	private String dizziness;
 	private String appetite;
@@ -25,29 +24,28 @@ public class PatientHistory {
 	private String asthma;
 	private String surgeries;
 	private String allergies;
-	private String obstetrichistory;
 	private String grav;
 	private String para;
 	private String abortion;
 	private String live;
-	private String fatherdm;
-	private String motherdm;
-	private String sibilingsdm;
-	private String fatherhtm;
-	private String motherhtm;
-	private String sibilingshtm;	
-	private String fatherheartdisease;
-	private String motherheartdisease;
-	private String sibilingsheartdisease;
-	private String fatherkidneydisease;
-	private String motherkidneydisease;
-	private String sibilingskidneydisease;
-	private String fatherasthma;
-	private String motherasthma;
-	private String sibilingsasthma;
-	private String otherfamhistoryfather;
-	private String otherfamhistorymother;
-	private String otherfamhistorysibilings;
+	private String dmfather;
+	private String dmmother;
+	private String dmsibilings;
+	private String htnfather;
+	private String htnmother;
+	private String htnsibilings;
+	private String heartdiseasefather;
+	private String heartdiseasemother;
+	private String heartdiseasesibilings;
+	private String kidneydiseasefather;
+	private String kidneydiseasemother;
+	private String kidneydiseasesibilings;
+	private String asthmafather;
+	private String asthmamother;
+	private String asthmasibilings;
+	private String othersfather;
+	private String othersmother;
+	private String otherssiblings;
 	private String medications;
 	private String bp;
 	private String pulse;
@@ -61,8 +59,8 @@ public class PatientHistory {
 	private String breast;
 	private String feet;
 	private String impressions;
-	private String reccomendations;
-
+	private String recommendations;
+	private String labreports;
 
 	public String getId() {
 		return id;
@@ -80,12 +78,12 @@ public class PatientHistory {
 		this.patientid = patientid;
 	}
 
-	public String getCheifcomplaints() {
-		return cheifcomplaints;
+	public String getChiefcomplaints() {
+		return chiefcomplaints;
 	}
 
-	public void setCheifcomplaints(String cheifcomplaints) {
-		this.cheifcomplaints = cheifcomplaints;
+	public void setChiefcomplaints(String chiefcomplaints) {
+		this.chiefcomplaints = chiefcomplaints;
 	}
 
 	public String getPresentillness() {
@@ -94,14 +92,6 @@ public class PatientHistory {
 
 	public void setPresentillness(String presentillness) {
 		this.presentillness = presentillness;
-	}
-
-	public String getReviewofsystems() {
-		return reviewofsystems;
-	}
-
-	public void setReviewofsystems(String reviewofsystems) {
-		this.reviewofsystems = reviewofsystems;
 	}
 
 	public String getHeadache() {
@@ -208,14 +198,6 @@ public class PatientHistory {
 		this.allergies = allergies;
 	}
 
-	public String getObstetrichistory() {
-		return obstetrichistory;
-	}
-
-	public void setObstetrichistory(String obstetrichistory) {
-		this.obstetrichistory = obstetrichistory;
-	}
-
 	public String getGrav() {
 		return grav;
 	}
@@ -248,148 +230,148 @@ public class PatientHistory {
 		this.live = live;
 	}
 
-	public String getFatherdm() {
-		return fatherdm;
+	public String getDmfather() {
+		return dmfather;
 	}
 
-	public void setFatherdm(String fatherdm) {
-		this.fatherdm = fatherdm;
+	public void setDmfather(String dmfather) {
+		this.dmfather = dmfather;
 	}
 
-	public String getMotherdm() {
-		return motherdm;
+	public String getDmmother() {
+		return dmmother;
 	}
 
-	public void setMotherdm(String motherdm) {
-		this.motherdm = motherdm;
+	public void setDmmother(String dmmother) {
+		this.dmmother = dmmother;
 	}
 
-	public String getSibilingsdm() {
-		return sibilingsdm;
+	public String getDmsibilings() {
+		return dmsibilings;
 	}
 
-	public void setSibilingsdm(String sibilingsdm) {
-		this.sibilingsdm = sibilingsdm;
+	public void setDmsibilings(String dmsibilings) {
+		this.dmsibilings = dmsibilings;
 	}
 
-	public String getFatherhtm() {
-		return fatherhtm;
+	public String getHtnfather() {
+		return htnfather;
 	}
 
-	public void setFatherhtm(String fatherhtm) {
-		this.fatherhtm = fatherhtm;
+	public void setHtnfather(String htnfather) {
+		this.htnfather = htnfather;
 	}
 
-	public String getMotherhtm() {
-		return motherhtm;
+	public String getHtnmother() {
+		return htnmother;
 	}
 
-	public void setMotherhtm(String motherhtm) {
-		this.motherhtm = motherhtm;
+	public void setHtnmother(String htnmother) {
+		this.htnmother = htnmother;
 	}
 
-	public String getSibilingshtm() {
-		return sibilingshtm;
+	public String getHtnsibilings() {
+		return htnsibilings;
 	}
 
-	public void setSibilingshtm(String sibilingshtm) {
-		this.sibilingshtm = sibilingshtm;
+	public void setHtnsibilings(String htnsibilings) {
+		this.htnsibilings = htnsibilings;
 	}
 
-	public String getFatherheartdisease() {
-		return fatherheartdisease;
+	public String getHeartdiseasefather() {
+		return heartdiseasefather;
 	}
 
-	public void setFatherheartdisease(String fatherheartdisease) {
-		this.fatherheartdisease = fatherheartdisease;
+	public void setHeartdiseasefather(String heartdiseasefather) {
+		this.heartdiseasefather = heartdiseasefather;
 	}
 
-	public String getMotherheartdisease() {
-		return motherheartdisease;
+	public String getHeartdiseasemother() {
+		return heartdiseasemother;
 	}
 
-	public void setMotherheartdisease(String motherheartdisease) {
-		this.motherheartdisease = motherheartdisease;
+	public void setHeartdiseasemother(String heartdiseasemother) {
+		this.heartdiseasemother = heartdiseasemother;
 	}
 
-	public String getSibilingsheartdisease() {
-		return sibilingsheartdisease;
+	public String getHeartdiseasesibilings() {
+		return heartdiseasesibilings;
 	}
 
-	public void setSibilingsheartdisease(String sibilingsheartdisease) {
-		this.sibilingsheartdisease = sibilingsheartdisease;
+	public void setHeartdiseasesibilings(String heartdiseasesibilings) {
+		this.heartdiseasesibilings = heartdiseasesibilings;
 	}
 
-	public String getFatherkidneydisease() {
-		return fatherkidneydisease;
+	public String getKidneydiseasefather() {
+		return kidneydiseasefather;
 	}
 
-	public void setFatherkidneydisease(String fatherkidneydisease) {
-		this.fatherkidneydisease = fatherkidneydisease;
+	public void setKidneydiseasefather(String kidneydiseasefather) {
+		this.kidneydiseasefather = kidneydiseasefather;
 	}
 
-	public String getMotherkidneydisease() {
-		return motherkidneydisease;
+	public String getKidneydiseasemother() {
+		return kidneydiseasemother;
 	}
 
-	public void setMotherkidneydisease(String motherkidneydisease) {
-		this.motherkidneydisease = motherkidneydisease;
+	public void setKidneydiseasemother(String kidneydiseasemother) {
+		this.kidneydiseasemother = kidneydiseasemother;
 	}
 
-	public String getSibilingskidneydisease() {
-		return sibilingskidneydisease;
+	public String getKidneydiseasesibilings() {
+		return kidneydiseasesibilings;
 	}
 
-	public void setSibilingskidneydisease(String sibilingskidneydisease) {
-		this.sibilingskidneydisease = sibilingskidneydisease;
+	public void setKidneydiseasesibilings(String kidneydiseasesibilings) {
+		this.kidneydiseasesibilings = kidneydiseasesibilings;
 	}
 
-	public String getFatherasthma() {
-		return fatherasthma;
+	public String getAsthmafather() {
+		return asthmafather;
 	}
 
-	public void setFatherasthma(String fatherasthma) {
-		this.fatherasthma = fatherasthma;
+	public void setAsthmafather(String asthmafather) {
+		this.asthmafather = asthmafather;
 	}
 
-	public String getMotherasthma() {
-		return motherasthma;
+	public String getAsthmamother() {
+		return asthmamother;
 	}
 
-	public void setMotherasthma(String motherasthma) {
-		this.motherasthma = motherasthma;
+	public void setAsthmamother(String asthmamother) {
+		this.asthmamother = asthmamother;
 	}
 
-	public String getSibilingsasthma() {
-		return sibilingsasthma;
+	public String getAsthmasibilings() {
+		return asthmasibilings;
 	}
 
-	public void setSibilingsasthma(String sibilingsasthma) {
-		this.sibilingsasthma = sibilingsasthma;
+	public void setAsthmasibilings(String asthmasibilings) {
+		this.asthmasibilings = asthmasibilings;
 	}
 
-	public String getOtherfamhistoryfather() {
-		return otherfamhistoryfather;
+	public String getOthersfather() {
+		return othersfather;
 	}
 
-	public void setOtherfamhistoryfather(String otherfamhistoryfather) {
-		this.otherfamhistoryfather = otherfamhistoryfather;
+	public void setOthersfather(String othersfather) {
+		this.othersfather = othersfather;
 	}
 
-	public String getOtherfamhistorymother() {
-		return otherfamhistorymother;
+	public String getOthersmother() {
+		return othersmother;
 	}
 
-	public void setOtherfamhistorymother(String otherfamhistorymother) {
-		this.otherfamhistorymother = otherfamhistorymother;
+	public void setOthersmother(String othersmother) {
+		this.othersmother = othersmother;
 	}
 
-	public String getOtherfamhistorysibilings() {
-		return otherfamhistorysibilings;
+	public String getOtherssiblings() {
+		return otherssiblings;
 	}
 
-	public void setOtherfamhistorysibilings(String otherfamhistorysibilings) {
-		this.otherfamhistorysibilings = otherfamhistorysibilings;
+	public void setOtherssiblings(String otherssiblings) {
+		this.otherssiblings = otherssiblings;
 	}
 
 	public String getMedications() {
@@ -496,12 +478,20 @@ public class PatientHistory {
 		this.impressions = impressions;
 	}
 
-	public String getReccomendations() {
-		return reccomendations;
+	public String getRecommendations() {
+		return recommendations;
 	}
 
-	public void setReccomendations(String reccomendations) {
-		this.reccomendations = reccomendations;
+	public void setRecommendations(String recommendations) {
+		this.recommendations = recommendations;
+	}
+
+	public String getLabreports() {
+		return labreports;
+	}
+
+	public void setLabreports(String labreports) {
+		this.labreports = labreports;
 	}
 
 }
