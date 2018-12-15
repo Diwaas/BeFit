@@ -32,14 +32,6 @@ public class Patient {
 	private String education;
 	private String natureofwork;
 	
-	public int getSeq() {
-		return seq;
-	}
-
-	public void setSeq(int seq) {
-		this.seq = seq;
-	}
-
 	public String getPassword() {
 		return password;
 	}

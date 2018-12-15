@@ -15,6 +15,7 @@ import com.paypal.diwaas.Service.UserService;
 import com.paypal.diwaas.util.sideloading.JSONModel;
 import com.paypal.diwaas.util.sideloading.JSONModelHelper;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Controller
 @RequestMapping("/users")
@@ -23,38 +24,6 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-//	@RequestMapping(value = "/login", method = RequestMethod.POST)
-//	public ResponseEntity<JSONModel>  login(@RequestBody User user) {
-//		//get User 
-//		ResponseEntity<JSONModel> resp = null;
-//		JSONModel jsonModel = null;
-//		try {
-//			jsonModel= userService.getLoginUser(user);
-//			resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
-//		} catch (Exception e) {
-//			jsonModel = JSONModelHelper.processJSONModelForObject("500", "INVALID REQUEST", e.getMessage());
-//			resp = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonModel);
-//		}
-//		return resp;
-//	}
-//	
-//	@RequestMapping(value = "/register", method = RequestMethod.POST)
-//	public ResponseEntity<JSONModel>  register(@RequestBody User user) {
-//		//create User
-//		ResponseEntity<JSONModel> resp = null;
-//		JSONModel jsonModel = null;
-//		try {
-//			//String username = "arajakumar";
-//			User newUser= userService.createUser(user);
-//			jsonModel = JSONModelHelper.processJSONModelForObject("200", "User created successfully", newUser);
-//			resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
-//		} catch (Exception e) {
-//			jsonModel = JSONModelHelper.processJSONModelForObject("500", "INVALID REQUEST", e.getMessage());
-//			resp = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonModel);
-//		}
-//		return resp;
-//	}
-//	
 //	@RequestMapping(value = "/forgetPassword", method = RequestMethod.POST)
 //	public ResponseEntity<JSONModel>  forgetPassword(@RequestBody User user) {
 //		ResponseEntity<JSONModel> resp = null;
@@ -74,7 +43,6 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<JSONModel>  login(@RequestBody User user) {
 		//get User 
-		System.out.println("hhhhhhh");
 		ResponseEntity<JSONModel> resp = null;
 		JSONModel jsonModel = null;
 		try {
