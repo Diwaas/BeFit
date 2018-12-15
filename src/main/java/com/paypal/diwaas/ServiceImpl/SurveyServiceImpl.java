@@ -6,14 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.paypal.diwaas.Entity.Survey;
+import com.paypal.diwaas.Entity.SurveyResult;
 import com.paypal.diwaas.Service.SurveyService;
 import com.paypal.diwaas.dao.SurveyDAO;
+import com.paypal.diwaas.dao.SurveyResultDAO;
 
 @Service
 public class SurveyServiceImpl implements SurveyService{
 	
 	@Autowired
 	SurveyDAO surveyDAO;
+	
+	@Autowired
+	SurveyResultDAO surveyresultdao;
 	
 	public List<Survey> fetchTheSurvey() {
 		return surveyDAO.findAll();
@@ -22,6 +27,12 @@ public class SurveyServiceImpl implements SurveyService{
 	@Override
 	public void saveSurvey(Survey survey) {
 		surveyDAO.save(survey);
+	}
+
+	@Override
+	public void submitSurvey(SurveyResult sr) {
+		surveyresultdao.save(sr);
+		
 	}
 	
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.paypal.diwaas.Entity.Survey;
+import com.paypal.diwaas.Entity.SurveyResult;
 import com.paypal.diwaas.Entity.User;
 import com.paypal.diwaas.Service.SurveyService;
 import com.paypal.diwaas.Service.UserService;
@@ -64,5 +65,27 @@ public class SurveyController {
 		
 		}
 		return resp;
+	}
+	
+	@RequestMapping(value = "/submitSurvey", method = RequestMethod.POST)
+	public ResponseEntity<JSONModel> submitSurvey(@RequestBody SurveyResult sr)
+	{
+		ResponseEntity<JSONModel> resp = null;
+		JSONModel jsonModel = null;
+		try
+		{
+			surveyService.submitSurvey(sr);
+			jsonModel = JSONModelHelper.processJSONModelForObject("200", "Survey Save success", "");
+			resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
+		}
+		catch(Exception e)
+		{
+
+			jsonModel = JSONModelHelper.processJSONModelForObject("500", "SURVEY SAVE FAILED", e.getMessage());
+			resp = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonModel);
+		
+		}
+		return resp;
+		
 	}
 }
