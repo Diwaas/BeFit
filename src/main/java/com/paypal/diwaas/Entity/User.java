@@ -13,6 +13,7 @@ public class User {
 	private int mobilenumber;
 	private String hospital;
 	private String email;
+	private String doctorname;
 	private String role;
 
 	public String getPassword() {
@@ -70,4 +71,14 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+	public String getDoctorname() {
+		return doctorname;
+	}
+
+	public void setDoctorname(String doctorname) {
+		this.doctorname = doctorname;
+	}
+	
+	
 }

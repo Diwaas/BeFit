@@ -34,7 +34,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User createUser(User user) {
-		// TODO Auto-generated method stub
 		User newUser = userDAO.save(user);
 		return newUser;
 	}
