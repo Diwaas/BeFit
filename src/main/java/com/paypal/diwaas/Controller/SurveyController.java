@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -88,4 +89,28 @@ public class SurveyController {
 		return resp;
 		
 	}
+	
+	@RequestMapping(value = "/getSurvey/{id}", method = RequestMethod.GET)
+	public ResponseEntity<JSONModel> getSurvey(@PathVariable String id)
+	{
+		ResponseEntity<JSONModel> resp = null;
+		JSONModel jsonModel = null;
+		try
+		{
+			List<SurveyResult> surveyList = surveyService.getSurveyResult(id);
+			jsonModel = JSONModelHelper.processJSONModelForObject("200", "Survey Retrived success", surveyList);
+			resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
+		}
+		catch(Exception e)
+		{
+
+			jsonModel = JSONModelHelper.processJSONModelForObject("500", "SURVEY SAVE FAILED", e.getMessage());
+			resp = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonModel);
+		
+		}
+		return resp;
+		
+	}
+	
+	
 }
