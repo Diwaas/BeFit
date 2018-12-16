@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 import TakeASurvey from './TakeASurvey'
+import Header from './Header'
 
 class UserHome extends Component {
     constructor(props, context) {
@@ -24,15 +25,7 @@ class UserHome extends Component {
         return (
             <div className="appContainer">
                 <div className="sectionPartUser">
-                    <div className="topMenu">
-                        <div className="headerLeft"></div>
-                        <div className="headerLogo">
-                            <img src={require("./img/logo.svg")} width="250px"/>
-                        </div>
-                        <div className="headerRight">
-                            <div className="loginReg">Welcome Dharu</div>
-                        </div>
-                    </div>
+                    <Header />
                     {this.state.page==='/userHome'?
                         <div className="dataContainer">
                             <div className="userMenuContainer">
