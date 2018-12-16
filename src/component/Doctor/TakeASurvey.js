@@ -16,7 +16,7 @@ class TakeASurvey extends Component {
             checkedOption:'',
             surveyCompleted: false,
             surveyResult:'',
-            finalSurveyList:{"patientid" : "1235","tracks":[]},
+            finalSurveyList:{"patientid" : this.props.patientDetails.id,"tracks":[]},
             track:[smoking, surveyList],
             trackName:['Smoking', 'Diabetics'],
             trackCount:0,

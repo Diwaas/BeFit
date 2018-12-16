@@ -28,6 +28,29 @@ app.post('/login', function(req, res) {
     callAPI(options, req, res)
 
 })
+app.post('/patient/login', function(req, res) {
+    var options = {
+        uri : 'http://10.176.5.11:9091/patient/login',
+        method : 'POST',
+        json: true,
+        headers: req.headers || {},
+        body: req.body
+    }; 
+    callAPI(options, req, res)
+
+})
+app.post('/survey/getSurvey', function(req, res) {
+   console.log(req.body);
+   var options = {
+        uri : 'http://10.176.5.11:9091/survey/getSurvey/'+req.body.id,
+        method : 'GET',
+        json: true,
+        headers: req.headers || {},
+        body: {}
+    }; 
+    callAPI(options, req, res)
+
+})
 app.post('/survey/submitSurvey', function(req, res) {
    console.log(req.body);
    var options = {

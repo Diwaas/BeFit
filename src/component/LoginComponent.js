@@ -21,7 +21,7 @@ import caller from '../caller'
     }
     handleSubmit() {
         if (this.state.enableSubmit) {
-            this.fetchLoginData('/login', {"name": this.state.username, "password": this.state.password})
+            this.fetchLoginData('/login', {"username": this.state.username, "password": this.state.password})
         }
     }
     fetchLoginData(url, data) {
@@ -30,10 +30,10 @@ import caller from '../caller'
             res => {
                 if(res.status === 200 ) {
                     let user = JSON.parse(res.text);
-                    debugger;
                     if(user.meta.status_code==='200' && user.meta.status_msg==='User retrieved successfully' ) {
                         let diwaasUser = {name:user.data.name, role:user.data.role, id:user.data.id};
-                        localStorage.setItem('diwaasUser', JSON.stringify(this.state.diwaasUser));
+                        localStorage.setItem('diwaasUser', JSON.stringify(diwaasUser));
+                        debugger;
                         if (user.data.role === 'admin') {
                             this.props.history.push('/admin');
                         } else if (user.data.role === 'doctor') {

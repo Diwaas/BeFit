@@ -86,7 +86,7 @@ class DoctorHome extends Component {
                         :''}
                         {this.state.pageName==='takeSurvey'?
                             <div>
-                                <TakeASUrvey action={this.submitSurvey}/>
+                                <TakeASUrvey action={this.submitSurvey} patientDetails={this.state.patientDetails}/>
                             </div>
                         :''}
                     </div>

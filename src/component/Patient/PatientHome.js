@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 
 import Header from '../Header'
 import FAQ from './FAQ'
+import ViewReport from './ViewReport'
+
 
 class PatientHome extends Component {
     constructor(props, context) {
@@ -39,6 +41,9 @@ class PatientHome extends Component {
                         </div>
                         {this.state.pageName==='faq'?
                             <FAQ addAction={this.addAction}/>                           
+                        :''}
+                        {this.state.pageName==='report'?
+                            <ViewReport addAction={this.addAction}/>                           
                         :''}
                     </div>
                 </div>

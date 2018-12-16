@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 import '../css/style.css';
-
+import '../css/admin-style.css'
 // components
 import LoginComponent from './LoginComponent'
 import RegisterComponent from './RegisterComponent'
@@ -13,7 +13,7 @@ class App extends Component {
         super(props, context);
         this.state = {
             page:'home',
-            diwaasUser: {name:'Dharani', role:'doctor', id:''},
+            diwaasUser: {name:'', role:'', id:''},
             pageStatus:'login'
         };
         this.changeLoginRegister = this.changeLoginRegister.bind(this);
