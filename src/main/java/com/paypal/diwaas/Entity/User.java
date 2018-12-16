@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "user")
 public class User {
+	private String diwaasId;
+	
 	@Id
 	private String id;
 	@Indexed(unique = true)
@@ -82,6 +84,12 @@ public class User {
 		this.username = username;
 	}
 
-	
+	public String getDiwaasId() {
+		return diwaasId;
+	}
+
+	public void setDiwaasId(String diwaasId) {
+		this.diwaasId = diwaasId;
+	}
 	
 }

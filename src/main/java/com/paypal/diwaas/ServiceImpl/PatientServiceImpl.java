@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.paypal.diwaas.Entity.Patient;
 import com.paypal.diwaas.Entity.PatientHistory;
 import com.paypal.diwaas.Service.PatientService;
+import com.paypal.diwaas.Service.SequenceCounterService;
 import com.paypal.diwaas.dao.PatientDAO;
 import com.paypal.diwaas.dao.PatientHistoryDAO;
 import com.paypal.diwaas.util.sideloading.JSONModel;
@@ -23,9 +24,12 @@ public class PatientServiceImpl implements PatientService {
 
 	@Autowired
 	PatientDAO patientDAO;
-	
+
 	@Autowired
 	PatientHistoryDAO patientHistoryDAO;
+
+	@Autowired
+	SequenceCounterService sequenceCounterService;
 
 	@Override
 	public ResponseEntity<JSONModel> getLogin(Patient patient) {
@@ -44,7 +48,8 @@ public class PatientServiceImpl implements PatientService {
 			}
 
 		}
-		jsonModel = JSONModelHelper.processJSONModelForObject("200", "Patient retrieved successfully", loginPatient.get());
+		jsonModel = JSONModelHelper.processJSONModelForObject("200", "Patient retrieved successfully",
+				loginPatient.get());
 		resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
 		return resp;
 	}
@@ -52,14 +57,15 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public Patient createPatient(Patient patient) {
 		DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-	    Date dateobj = new Date();
-	    String d = df.format(dateobj);
-	    patient.setDate(d);
-	    patient.setPassword(Long.toString(patient.getMobilenumber()));
+		Date dateobj = new Date();
+		String d = df.format(dateobj);
+		patient.setDate(d);
+		patient.setPassword(Long.toString(patient.getMobilenumber()));
+		patient.setDiwaasId(sequenceCounterService.getNextPatientIdSequence() + "");
 		Patient newPatient = patientDAO.save(patient);
 		return newPatient;
 	}
-	
+
 	@Override
 	public PatientHistory addPatientHistory(PatientHistory patientHistory, String patientId) {
 		patientHistory.setPatientid(patientId);
@@ -85,7 +91,7 @@ public class PatientServiceImpl implements PatientService {
 		patientDAO.deleteById(id);
 		List<Patient> patients = patientDAO.findAll();
 		return patients;
-		
+
 	}
 
 }

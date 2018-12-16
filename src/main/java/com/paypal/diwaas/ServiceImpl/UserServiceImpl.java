@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.paypal.diwaas.Entity.User;
+import com.paypal.diwaas.Service.SequenceCounterService;
 import com.paypal.diwaas.Service.UserService;
 import com.paypal.diwaas.dao.UserDAO;
 import com.paypal.diwaas.util.sideloading.JSONModel;
@@ -16,6 +17,9 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	UserDAO userDAO;
 
+	@Autowired
+	SequenceCounterService sequenceCounterService;
+	
 	@Override
 	public ResponseEntity<JSONModel> getLoginUser(User user) {
 		JSONModel jsonModel = null;
@@ -46,6 +50,7 @@ public class UserServiceImpl implements UserService{
 		else if(user.getRole().equals("doctor")) {
 			user.setUsername(user.getEmail());
 		}
+		user.setDiwaasId(sequenceCounterService.getNextUserIdSequence() + "");
 		User newUser = userDAO.save(user);
 		return newUser;
 	}

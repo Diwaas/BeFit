@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "patient")
 public class Patient {
+	private String diwaasId;
+	
 	@Id
 	private String id;
 	private String username="";
@@ -675,6 +677,13 @@ public class Patient {
 	public void setLabreports(String labreports) {
 		this.labreports = labreports;
 	}
-	
+
+	public String getDiwaasId() {
+		return diwaasId;
+	}
+
+	public void setDiwaasId(String diwaasId) {
+		this.diwaasId = diwaasId;
+	}
 
 }
