@@ -9,11 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 	@Id
 	private String id;
+	@Indexed(unique = true)
+	private String username;
 	private String name;
 	private String password;
 	private String mobilenumber="";
 	private String hospital="";
-	@Indexed(unique = true)
 	private String email;
 	private String role;
 
@@ -71,6 +72,14 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	

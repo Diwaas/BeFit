@@ -20,9 +20,9 @@ public class UserServiceImpl implements UserService{
 	public ResponseEntity<JSONModel> getLoginUser(User user) {
 		JSONModel jsonModel = null;
 		ResponseEntity<JSONModel> resp = null;
-		User loginUser = userDAO.findByEmailAndPassword(user.getEmail(), user.getPassword());
+		User loginUser = userDAO.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		if(loginUser == null){
-			loginUser = userDAO.findByEmail(user.getEmail());
+			loginUser = userDAO.findByUsername(user.getUsername());
 			if(loginUser == null){
 				jsonModel = JSONModelHelper.processJSONModelForObject("500", "Please register Now", null);
 				resp = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jsonModel);
@@ -40,6 +40,12 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User createUser(User user) {
+		if(user.getRole().equals("admin")) {
+			user.setUsername(user.getName());
+		}
+		else if(user.getRole().equals("doctor")) {
+			user.setUsername(user.getEmail());
+		}
 		User newUser = userDAO.save(user);
 		return newUser;
 	}

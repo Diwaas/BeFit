@@ -2,12 +2,15 @@ package com.paypal.diwaas.Entity;
 
 import javax.persistence.Id;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "patient")
 public class Patient {
 	@Id
 	private String id;
+	@Indexed(unique = true)
+	private String username;
 	private String name="";
 	private String password="";
 	private String email="";
@@ -107,6 +110,15 @@ public class Patient {
 
 	public String getEmail() {
 		return email;
+	}
+
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public void setEmail(String email) {

@@ -11,9 +11,9 @@ import com.paypal.diwaas.Entity.User;
 @Transactional
 public interface UserDAO extends MongoRepository<User, String> {
 
-	User findByEmailAndPassword(String email, String password);
+	User findByUsernameAndPassword(String username, String password);
 
-	User findByEmail(String email);
+	User findByUsername(String username);
 
 	// User findByQuestionAndAnswer(String question, String answer);
 

@@ -56,6 +56,7 @@ public class PatientServiceImpl implements PatientService {
 	    String d = df.format(dateobj);
 	    patient.setDate(d);
 	    patient.setRegno(patient.getId());
+	    patient.setUsername(patient.getId());
 		Patient newPatient = patientDAO.save(patient);
 		return newPatient;
 	}
