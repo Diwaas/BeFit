@@ -13,10 +13,12 @@ import com.paypal.diwaas.Entity.Patient;
 @Transactional
 public interface PatientDAO extends MongoRepository<Patient, String> {
 
-	Optional<Patient> findByIdAndPassword(String name, String password);
+//	Optional<Patient> findByIdAndPassword(String name, String password);
 
 	Optional<Patient> findById(String name);
 	
 	void deleteById(String id);
+
+	Optional<Patient> findByIdAndMobilenumber(String username, long mobilenumber);
 	
 }

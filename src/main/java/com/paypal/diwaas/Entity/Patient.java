@@ -2,13 +2,13 @@ package com.paypal.diwaas.Entity;
 
 import javax.persistence.Id;
 
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "patient")
 public class Patient {
 	@Id
 	private String id;
+	private String role="";
 	private String username="";
 	private String name="";
 	private String password="";
@@ -675,6 +675,13 @@ public class Patient {
 	public void setLabreports(String labreports) {
 		this.labreports = labreports;
 	}
-	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 }
