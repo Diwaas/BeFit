@@ -8,6 +8,15 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js'
     },
+    devServer: {
+    port: 8080,
+    proxy: {
+      '/users': {
+        target: `http://10.176.8.11:7071`,
+        secure: false
+      }
+    }
+  },
     module: {
         rules: [
             {

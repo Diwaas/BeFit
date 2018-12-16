@@ -78,13 +78,23 @@ html, body {
     border-radius: 3px;
     cursor: pointer;
 }
+.actionCenterDisabled {
+    background: #777a7b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
 .actionRight {
     text-decoration: underline;
     color: blue;
     cursor: pointer;
     width: 20%;
 }
-
+.link {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
 
 
 .leftSideMenu {
@@ -122,6 +132,12 @@ html, body {
 .dataContainer {
     width: 100%;
     height: 90%;
+}
+.dataContainerFlex {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
 }
 .userMenuContainer {
     width: 95%;
@@ -177,4 +193,154 @@ html, body {
     color: white;
     border-radius: 2px;
     cursor: pointer;
+}
+
+.doctorMenu {
+    display: flex;
+    width: 300px;
+    height: 68px;
+    align-items: center;
+    justify-content: space-around;
+    align-self: flex-end;
+}
+.patientDetailsConatiner {
+    width: 80%;
+    height: 78%;
+    margin: 0px auto;
+}
+.patientField {
+    width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.patientField > label {
+    width: 150px;
+}
+.patientField > input {
+    width: 90%;
+    height: 80%;
+}
+.mandatory {
+    color: red;
+    margin: 10px;
+}
+.patientTrack {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: slategrey;
+}
+.detailsContainer{
+    width: 100%;
+    min-height: 100%;
+    background: #add8e636;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+.detailsMain {
+    height: 95%;
+    width: 100%;
+    margin-top: 10px;
+}
+.detailsSection {
+    width: 95%;
+    margin: auto;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #80808029;
+}
+.detailsIndi {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    padding: 0px 10px;
+    border-right: 1px solid #dde4e7;
+    border-left: 1px solid #dde4e7;
+}
+.detailsIndi > label {
+    align-self: baseline;
+    width: 100%;
+    height: 30px;
+}
+.detailsIndi > input {
+    width: 95%;
+    height: 50px;
+    border: none;
+}
+.detailsIndi > textarea {
+    width: 95%;
+    height: 50px;
+    border: none;
+    resize: none;
+}
+.detailsIndi > select {
+    width: 200px;
+    height: 25px;
+}
+.detailsIndi > textarea {
+    width: 95%;
+    height: 50px;
+    border: none;
+    resize: none;
+}
+*:focus {
+    outline: none;
+}
+.detailsGroup {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.detailsGroup > label {
+    align-self: baseline;
+    width: 100%;
+    height: 30px;
+}
+.detailsGroup > input {
+    width: 95%;
+    height: 50px;
+    border: none;
+}
+.detailsGroup > textarea {
+    width: 95%;
+    height: 50px;
+    border: none;
+    resize: none;
+}
+.detailsGroup > select {
+    width: 200px;
+    height: 25px;
+    margin-right: 10px;
+}
+.actionContainer {
+    margin-top: 20px;
+}
+.detailsSubHeader {
+    width: 95%;
+    margin: auto;
+    padding: 10px 0px;
+    font-weight: bold;
+}
+.familyCheckbox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }

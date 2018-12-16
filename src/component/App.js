@@ -14,7 +14,7 @@ class App extends Component {
         this.state = {
             page:'home',
             diwaasUser: {
-                user:'dharu'
+                user:''
             },
             pageStatus:'login'
         };
