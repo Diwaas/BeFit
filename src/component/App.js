@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 import '../css/style.css';
-
+import '../css/admin-style.css'
 // components
 import LoginComponent from './LoginComponent'
 import RegisterComponent from './RegisterComponent'
