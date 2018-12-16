@@ -9,8 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Patient {
 	@Id
 	private String id;
-	@Indexed(unique = true)
-	private String username;
+	private String username="";
 	private String name="";
 	private String password="";
 	private String email="";

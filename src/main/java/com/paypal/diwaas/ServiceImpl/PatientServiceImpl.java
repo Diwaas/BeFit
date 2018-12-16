@@ -31,9 +31,9 @@ public class PatientServiceImpl implements PatientService {
 	public ResponseEntity<JSONModel> getLogin(Patient patient) {
 		ResponseEntity<JSONModel> resp = null;
 		JSONModel jsonModel = null;
-		Optional<Patient> loginPatient = patientDAO.findByIdAndPassword(patient.getId(), patient.getPassword());
+		Optional<Patient> loginPatient = patientDAO.findByIdAndPassword(patient.getUsername(), patient.getPassword());
 		if (loginPatient == null) {
-			loginPatient = patientDAO.findById(patient.getId());
+			loginPatient = patientDAO.findById(patient.getUsername());
 			if (loginPatient.get() == null) {
 				jsonModel = JSONModelHelper.processJSONModelForObject("500", "Please register Now", null);
 				resp = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jsonModel);
@@ -55,8 +55,7 @@ public class PatientServiceImpl implements PatientService {
 	    Date dateobj = new Date();
 	    String d = df.format(dateobj);
 	    patient.setDate(d);
-	    patient.setRegno(patient.getId());
-	    patient.setUsername(patient.getId());
+	    patient.setPassword(Long.toString(patient.getMobilenumber()));
 		Patient newPatient = patientDAO.save(patient);
 		return newPatient;
 	}
