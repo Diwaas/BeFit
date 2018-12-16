@@ -7,7 +7,7 @@ class MedicalForm extends Component {
         super(props, context);
         this.state = {
             pageName:'/',
-            medicalDetails:{}
+            medicalDetails:this.props.details!==''?this.props.details:{}
         };
         this.handleChange = this.handleChange.bind(this);
     }

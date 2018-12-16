@@ -8,7 +8,7 @@ class AddPatient extends Component {
         super(props, context);
         this.state = {
             pageName:'/',
-            personalDetails:{sex:'female',relation:'spouse'}
+            personalDetails:this.props.details!==''?this.props.details:{sex:'female',relation:'spouse'}
         };
         this.handleChange = this.handleChange.bind(this);
     }

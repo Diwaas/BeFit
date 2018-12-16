@@ -18,14 +18,40 @@ app.get('/*', function(req, res) {
 })
 
 app.post('/login', function(req, res) {
-        var options = {
-            uri : 'http://10.176.8.11:7071/users/login',
-            method : 'POST',
-            json: true,
-            headers: req.headers || {},
-            body: req.body
-        }; 
-        request(options, function (error, response, body) {
+    var options = {
+        uri : 'http://10.176.5.11:9091/users/login',
+        method : 'POST',
+        json: true,
+        headers: req.headers || {},
+        body: req.body
+    }; 
+    callAPI(options, req, res)
+
+})
+app.post('/patient/register', function(req, res) {
+    var options = {
+        uri : 'http://10.176.5.11:9091/patient/register',
+        method : 'POST',
+        json: true,
+        headers: req.headers || {},
+        body: req.body
+    }; 
+    callAPI(options, req, res)
+
+})
+app.post('/patient', function(req, res) {
+    var options = {
+        uri : 'http://10.176.5.11:9091/patient',
+        method : 'GET',
+        json: true,
+        headers: req.headers || {},
+        body: req.body
+    }; 
+    callAPI(options, req, res)
+
+})
+function callAPI(options, req, res){
+     request(options, function (error, response, body) {
             console.log(error);
             console.log(response);
             
@@ -36,26 +62,7 @@ app.post('/login', function(req, res) {
                 res.send(json)
             }
         });
-    
-//        let serviceRequest = {
-//            method: 'POST',
-//            path: 'http://10.176.8.11:7071/users/login',
-//            json: true,
-//            headers: req.headers || {},
-//            payload: req.body
-//        };
-//        request(serviceRequest, function (error, response, body) {
-//            console.log(response);
-//            console.log(error);
-//            if (!error && response.statusCode == 200) {
-//                res = body;
-//            }
-//            else {
-//                res = 'Not Found';
-//            }
-//        });
-
-})
+}
     
 
 //app.get('/ping', function (req, res) {
