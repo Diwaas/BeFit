@@ -1,11 +1,13 @@
 package com.paypal.diwaas.Service;
 
+import org.springframework.http.ResponseEntity;
+
 import com.paypal.diwaas.Entity.User;
 import com.paypal.diwaas.util.sideloading.JSONModel;
 
 public interface UserService {
 
-	JSONModel getLoginUser(User user);
+	ResponseEntity<JSONModel> getLoginUser(User user);
 
 	User createUser(User user);
 

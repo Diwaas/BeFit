@@ -1,5 +1,7 @@
 package com.paypal.diwaas.dao;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -11,8 +13,8 @@ import com.paypal.diwaas.Entity.Patient;
 @Transactional
 public interface PatientDAO extends MongoRepository<Patient, String> {
 
-	Patient findByNameAndPassword(String name, String password);
+	Optional<Patient> findByIdAndPassword(String name, String password);
 
-	Patient findByName(String name);
+	Optional<Patient> findById(String name);
 	
 }

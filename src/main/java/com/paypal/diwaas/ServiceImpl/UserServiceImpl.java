@@ -1,6 +1,8 @@
 package com.paypal.diwaas.ServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.paypal.diwaas.Entity.User;
@@ -15,21 +17,25 @@ public class UserServiceImpl implements UserService{
 	UserDAO userDAO;
 
 	@Override
-	public JSONModel getLoginUser(User user) {
+	public ResponseEntity<JSONModel> getLoginUser(User user) {
 		JSONModel jsonModel = null;
-		User loginUser = userDAO.findByNameAndPassword(user.getName(), user.getPassword());
+		ResponseEntity<JSONModel> resp = null;
+		User loginUser = userDAO.findByEmailAndPassword(user.getName(), user.getPassword());
 		if(loginUser == null){
-			loginUser = userDAO.findByName(user.getName());
+			loginUser = userDAO.findByEmail(user.getName());
 			if(loginUser == null){
-				jsonModel = JSONModelHelper.processJSONModelForObject("200", "Please register Now", null);
+				jsonModel = JSONModelHelper.processJSONModelForObject("500", "Please register Now", null);
+				resp = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jsonModel);
 			}else{
-				jsonModel = JSONModelHelper.processJSONModelForObject("200", "Invalid Password", loginUser);
-				return jsonModel;
+				jsonModel = JSONModelHelper.processJSONModelForObject("500", "Invalid Password", loginUser);
+				resp = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jsonModel);
+				return resp;
 			}
 			
 		}
 		jsonModel = JSONModelHelper.processJSONModelForObject("200", "User retrieved successfully", loginUser);
-		return jsonModel;
+		resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
+		return resp;
 	}
 
 	@Override

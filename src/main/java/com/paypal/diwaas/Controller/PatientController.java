@@ -1,5 +1,7 @@
 package com.paypal.diwaas.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,7 +59,41 @@ public class PatientController {
 		}
 		return resp;
 	}
-
+	
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ResponseEntity<JSONModel> getAllPatients(){
+		// create User
+		ResponseEntity<JSONModel> resp = null;
+		JSONModel jsonModel = null;
+		try {
+			// String username = "arajakumar";
+			List<Patient> newPatient = patientService.getAllPatients();
+			jsonModel = JSONModelHelper.processJSONModelForObject("200", "Patient login created successfully", newPatient);
+			resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
+		} catch (Exception e) {
+			jsonModel = JSONModelHelper.processJSONModelForObject("500", "INVALID REQUEST", e.getMessage());
+			resp = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonModel);
+		}
+		return resp;
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<JSONModel> getPatientsByID(@PathVariable String id){
+		// create User
+		ResponseEntity<JSONModel> resp = null;
+		JSONModel jsonModel = null;
+		try {
+			// String username = "arajakumar";
+			Patient newPatient = patientService.getPatientsByID(id);
+			jsonModel = JSONModelHelper.processJSONModelForObject("200", "Patient login created successfully", newPatient);
+			resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
+		} catch (Exception e) {
+			jsonModel = JSONModelHelper.processJSONModelForObject("500", "INVALID REQUEST", e.getMessage());
+			resp = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonModel);
+		}
+		return resp;
+	}
+	
 	@RequestMapping(value = "/addPatientHistory/{patientId}", method = RequestMethod.POST)
 	public ResponseEntity<JSONModel> getPatientHistory(@PathVariable(value = "patientId") String patientId, @RequestBody PatientHistory patientHistory) {
 		// create User
