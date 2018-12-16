@@ -109,4 +109,19 @@ public class PatientController {
 		}
 		return resp;
 	}
+	
+	@RequestMapping(value = "/deletePatient/{id}", method = RequestMethod.GET)
+	public ResponseEntity<JSONModel> deletePatientByID(@PathVariable String id){
+		ResponseEntity<JSONModel> resp = null;
+		JSONModel jsonModel = null;
+		try {
+			List<Patient> newPatient = patientService.deletePatientById(id);
+			jsonModel = JSONModelHelper.processJSONModelForObject("200", "Patients fetched successfully", newPatient);
+			resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
+		} catch (Exception e) {
+			jsonModel = JSONModelHelper.processJSONModelForObject("500", "INVALID REQUEST", e.getMessage());
+			resp = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonModel);
+		}
+		return resp;
+	}
 }

@@ -17,4 +17,6 @@ public interface PatientDAO extends MongoRepository<Patient, String> {
 
 	Optional<Patient> findById(String name);
 	
+	void deleteById(String id);
+	
 }

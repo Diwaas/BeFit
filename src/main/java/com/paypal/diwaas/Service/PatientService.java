@@ -19,4 +19,6 @@ public interface PatientService {
 	List<Patient> getAllPatients();
 
 	Patient getPatientsByID(String id);
+	
+	List<Patient> deletePatientById(String id);
 }

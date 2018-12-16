@@ -80,4 +80,12 @@ public class PatientServiceImpl implements PatientService {
 		return patients.get();
 	}
 
+	@Override
+	public List<Patient> deletePatientById(String id) {
+		patientDAO.deleteById(id);
+		List<Patient> patients = patientDAO.findAll();
+		return patients;
+		
+	}
+
 }
