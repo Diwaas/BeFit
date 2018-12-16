@@ -31,9 +31,9 @@ public class PatientServiceImpl implements PatientService {
 	public ResponseEntity<JSONModel> getLogin(Patient patient) {
 		ResponseEntity<JSONModel> resp = null;
 		JSONModel jsonModel = null;
-		Optional<Patient> loginPatient = patientDAO.findByIdAndPassword(patient.getName(), patient.getPassword());
+		Optional<Patient> loginPatient = patientDAO.findByIdAndPassword(patient.getId(), patient.getPassword());
 		if (loginPatient == null) {
-			loginPatient = patientDAO.findById(patient.getName());
+			loginPatient = patientDAO.findById(patient.getId());
 			if (loginPatient.get() == null) {
 				jsonModel = JSONModelHelper.processJSONModelForObject("500", "Please register Now", null);
 				resp = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jsonModel);
