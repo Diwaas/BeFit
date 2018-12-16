@@ -34,5 +34,11 @@ public class SurveyServiceImpl implements SurveyService{
 		surveyresultdao.save(sr);
 		
 	}
+
+	@Override
+	public List<SurveyResult> getSurveyResult(String id) {
+		List<SurveyResult> surveyList = surveyresultdao.findByPatientid(id);
+		return surveyList;
+	}
 	
 }
