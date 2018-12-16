@@ -11,8 +11,8 @@ public class User {
 	private String id;
 	private String name;
 	private String password;
-	private String mobilenumber;
-	private String hospital;
+	private String mobilenumber="";
+	private String hospital="";
 	@Indexed(unique = true)
 	private String email;
 	private String role;
