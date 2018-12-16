@@ -10,7 +10,8 @@ import caller from '../caller'
         this.state = {
             username: '',
             password: '',
-            enableSubmit: false
+            enableSubmit: false,
+            errmsg:''
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -30,18 +31,25 @@ import caller from '../caller'
                 if(res.status === 200 ) {
                     let user = JSON.parse(res.text);
                     debugger;
+                    if(user.meta.status_code==='200' && user.meta.status_msg==='User retrieved successfully' ) {
+                        let diwaasUser = {name:user.data.name, role:user.data.role, id:user.data.id};
+                        localStorage.setItem('diwaasUser', JSON.stringify(this.state.diwaasUser));
+                        if (user.data.role === 'admin') {
+                            this.props.history.push('/admin');
+                        } else if (user.data.role === 'doctor') {
+                            this.props.history.push('/doctor');
+                        } else if (user.data.role === 'patient') {
+                            this.props.history.push('/patient');
+                        }
+                    } else {
+                        this.setState({errmsg:user.meta.status_msg});
+                    }
                 } else {
-                    
+                    this.setState({errmsg:"something went wrong try later."});
                 }
             }
         )
-        if (user.role === 'admin') {
-            this.props.history.push('/admin');
-        } else if (user.role === 'doctor') {
-            this.props.history.push('/doctor');
-        } else if (user.role === 'patient') {
-            this.props.history.push('/patient');
-        }
+        
     }
 
     render() {
@@ -58,6 +66,7 @@ import caller from '../caller'
                             <input type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleChange} />
                         </div>
                         <div className="forgotPasswordHome"></div>
+                        {this.state.errmsg!=''?<div className="errorMessage" id="hideme">{this.state.errmsg}</div>:''}
                         <div className="homeActionForm">
                             <div className="actionLeft"></div>
                             <div className={this.state.enableSubmit ? "actionCenter" : "actionCenterDisabled"} 

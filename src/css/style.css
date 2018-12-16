@@ -350,11 +350,21 @@ html, body {
     color: green;
     font-size: 22px;
 }
+.errorMessage {
+    width: 100%;
+    text-align: center;
+    color: red;
+    font-size: 10px;
+}
+.surveyTrack {
+    font-size: 20px;
+    font-weight: bold;
+}
 .patientViewConatiner {
     width: 80%;
     margin: 40px auto;
 }
-/*
+
 #hideMe {
     -moz-animation: cssAnimation 0s ease-in 5s forwards;
      Firefox 
@@ -379,4 +389,4 @@ html, body {
         height:0;
         visibility:hidden;
     }
-}*/
+}

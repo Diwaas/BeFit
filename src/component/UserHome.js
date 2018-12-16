@@ -25,7 +25,7 @@ class UserHome extends Component {
         return (
             <div className="appContainer">
                 <div className="sectionPartUser">
-                    <Header />
+                    <Header  {...this.props} />
                     {this.state.page==='/userHome'?
                         <div className="dataContainer">
                             <div className="userMenuContainer">

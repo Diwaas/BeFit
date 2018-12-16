@@ -6,8 +6,14 @@ class Header extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            userName:'User Name'
+            user: JSON.parse(localStorage.getItem('diwaasUser')),
+            diwaasUser: {name:'', role:'', id:''},
         };
+        this.logoutUser = this.logoutUser.bind(this);
+    }
+    logoutUser() {
+        localStorage.setItem('diwaasUser', JSON.stringify(this.state.diwaasUser));
+        this.props.history.push('/');
     }
     
     render() {
@@ -18,7 +24,8 @@ class Header extends Component {
                     <img src={require("./img/logo.svg")} width="250px"/>
                 </div>
                 <div className="headerRight">
-                    <div className="loginReg">Welcome {this.state.userName}</div>
+                    <div className="loginReg">Welcome {this.state.user.name}</div>
+                    <div className="link" onClick={()=>this.logoutUser()}>logout</div>
                 </div>
             </div>
         );

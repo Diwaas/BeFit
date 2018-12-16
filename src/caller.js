@@ -2,6 +2,7 @@ import request from 'superagent'
 
 let caller = {
     fetchData: (url, params, callback) => {
+        debugger;
         return request
             .post(url)
             .withCredentials()

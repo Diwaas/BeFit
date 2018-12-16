@@ -71,6 +71,11 @@ class ViewPatientDetails extends Component {
                                     Header: "Delete",
                                     id: "button2",
                                     accessor: d => (<div className="link" onClick={() => this.deleteMethod(d)}>Delete</div>)
+                                   },                          
+                                   {
+                                    Header: "Take Survey",
+                                    id: "button3",
+                                    accessor: d => (<div className="link" onClick={() => this.props.takeSurvey(d)}>Take Survey</div>)
                                    }
                             ]}
                             defaultPageSize={10}

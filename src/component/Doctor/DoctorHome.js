@@ -6,6 +6,7 @@ import Header from '../Header'
 import AddPatient from './AddPatient'
 import MedicalForm from './MedicalForm'
 import ViewPatientDetails from './ViewPatientDetails'
+import TakeASUrvey from './TakeASurvey'
 import caller from '../../caller'
 
 class DoctorHome extends Component {
@@ -20,6 +21,8 @@ class DoctorHome extends Component {
         };
         this.addAction = this.addAction.bind(this);
         this.editPatient = this.editPatient.bind(this);
+        this.takeSurvey = this.takeSurvey.bind(this);
+        this.submitSurvey = this.submitSurvey.bind(this);
     }
     navigate(url) {
         this.props.history.push('/doctor/' + url);
@@ -52,11 +55,17 @@ class DoctorHome extends Component {
     editPatient(details) {
         this.setState({patientDetails:details,editPatient:true,pageName:'addPatient',showAdd:'personal'});
     }
+    takeSurvey(details) {
+        this.setState({patientDetails:details,editPatient:false,pageName:'takeSurvey',showAdd:'personal'});
+    }
+    submitSurvey(details) {
+        
+    }
     render() {
         return (
             <div className="appContainer">
                 <div className="sectionPartUser">
-                    <Header />
+                    <Header {...this.props} />
                     <div className="dataContainerFlex">
                         <div className="doctorMenu">
                             {this.state.pageName!=='addPatient'?
@@ -72,7 +81,12 @@ class DoctorHome extends Component {
                         :''}
                         {this.state.pageName==='viewPatient'?
                             <div>
-                                <ViewPatientDetails action={this.editPatient}/>
+                                <ViewPatientDetails action={this.editPatient} takeSurvey={this.takeSurvey}/>
+                            </div>
+                        :''}
+                        {this.state.pageName==='takeSurvey'?
+                            <div>
+                                <TakeASUrvey action={this.submitSurvey}/>
                             </div>
                         :''}
                     </div>
