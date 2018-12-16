@@ -2,6 +2,7 @@ package com.paypal.diwaas.Entity;
 
 import javax.persistence.Id;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "user")
@@ -10,10 +11,10 @@ public class User {
 	private String id;
 	private String name;
 	private String password;
-	private int mobilenumber;
+	private String mobilenumber;
 	private String hospital;
+	@Indexed(unique = true)
 	private String email;
-	private String doctorname;
 	private String role;
 
 	public String getPassword() {
@@ -48,11 +49,11 @@ public class User {
 		this.email = email;
 	}
 
-	public int getMobilenumber() {
+	public String getMobilenumber() {
 		return mobilenumber;
 	}
 
-	public void setMobilenumber(int mobilenumber) {
+	public void setMobilenumber(String mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
 
@@ -72,13 +73,6 @@ public class User {
 		this.role = role;
 	}
 
-	public String getDoctorname() {
-		return doctorname;
-	}
-
-	public void setDoctorname(String doctorname) {
-		this.doctorname = doctorname;
-	}
 	
 	
 }

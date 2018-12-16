@@ -3,8 +3,11 @@ package com.paypal.diwaas.ServiceImpl;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.paypal.diwaas.Entity.Patient;
@@ -25,21 +28,25 @@ public class PatientServiceImpl implements PatientService {
 	PatientHistoryDAO patientHistoryDAO;
 
 	@Override
-	public JSONModel getLogin(Patient patient) {
+	public ResponseEntity<JSONModel> getLogin(Patient patient) {
+		ResponseEntity<JSONModel> resp = null;
 		JSONModel jsonModel = null;
-		Patient loginPatient = patientDAO.findByNameAndPassword(patient.getName(), patient.getPassword());
+		Optional<Patient> loginPatient = patientDAO.findByIdAndPassword(patient.getName(), patient.getPassword());
 		if (loginPatient == null) {
-			loginPatient = patientDAO.findByName(patient.getName());
-			if (loginPatient == null) {
-				jsonModel = JSONModelHelper.processJSONModelForObject("200", "Please register Now", null);
+			loginPatient = patientDAO.findById(patient.getName());
+			if (loginPatient.get() == null) {
+				jsonModel = JSONModelHelper.processJSONModelForObject("500", "Please register Now", null);
+				resp = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jsonModel);
 			} else {
-				jsonModel = JSONModelHelper.processJSONModelForObject("200", "Invalid Password", loginPatient);
-				return jsonModel;
+				jsonModel = JSONModelHelper.processJSONModelForObject("500", "Invalid Password", loginPatient.get());
+				resp = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jsonModel);
+				return resp;
 			}
 
 		}
-		jsonModel = JSONModelHelper.processJSONModelForObject("200", "Patient retrieved successfully", loginPatient);
-		return jsonModel;
+		jsonModel = JSONModelHelper.processJSONModelForObject("200", "Patient retrieved successfully", loginPatient.get());
+		resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
+		return resp;
 	}
 
 	@Override
@@ -58,6 +65,19 @@ public class PatientServiceImpl implements PatientService {
 		patientHistory.setPatientid(patientId);
 		PatientHistory newPatient = patientHistoryDAO.save(patientHistory);
 		return newPatient;
+	}
+
+	@Override
+	public List<Patient> getAllPatients() {
+		// TODO Auto-generated method stub
+		List<Patient> patients = patientDAO.findAll();
+		return patients;
+	}
+
+	@Override
+	public Patient getPatientsByID(String name) {
+		Optional<Patient> patients = patientDAO.findById(name);
+		return patients.get();
 	}
 
 }

@@ -46,8 +46,7 @@ public class UserController {
 		ResponseEntity<JSONModel> resp = null;
 		JSONModel jsonModel = null;
 		try {
-			jsonModel= userService.getLoginUser(user);
-			resp = ResponseEntity.status(HttpStatus.OK).body(jsonModel);
+			resp= userService.getLoginUser(user);
 		} catch (Exception e) {
 			jsonModel = JSONModelHelper.processJSONModelForObject("500", "INVALID REQUEST", e.getMessage());
 			resp = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(jsonModel);
